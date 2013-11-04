@@ -8,3 +8,5 @@ A javascript bookmarklet for enabling drag and drop functionality of elements in
 This bookmarklet will open an input field where you can type a selector for the elements you want to have drag and drop behavior. 
 
 The plugin will absolute position the selected elements on the page.
+
+You can get the bookmarklet at [http://code.medula.cl/article_Drag-and-drop-element-bookmarklet.html](http://code.medula.cl/article_Drag-and-drop-element-bookmarklet.html) 
