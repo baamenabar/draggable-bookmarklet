@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Testing page</title>
+	<style>
+		body{
+			font-family: sans-serif;
+			color: #333;
+		}
+		.boxes {
+			width: 800px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.boxes div{
+			width:150px;
+			height: 100px;
+			margin-left: 25px;
+			margin-bottom: 25px;
+			background:#FCC212;
+			float: left;
+		}
+		.boxes div:nth-child(even){
+			background: #45BCD2;
+		}
+		
+	</style>
+</head>
+<body>
+<div class="boxes">
+<p>The to select the boxes type: .boxes div </p>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</div>
+<p style="width:800px;margin:0 auto;">[<a href="javascript:(function(){if(window.myBookmarklet!==undefined){myBookmarklet();}else{document.body.appendChild(document.createElement('script')).src='https://raw.github.com/baamenabar/draggable-bookmarklet/master/drag-and-drop.js';}})();">The Draggable Bookmarklet</a>]</p>
+<script src="drag-and-drop.js">
+
+</script>
+</body>
+</html>

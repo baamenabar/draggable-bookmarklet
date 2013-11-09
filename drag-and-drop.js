@@ -60,14 +60,21 @@ DEALINGS IN THE SOFTWARE.
     document.getElementsByTagName('head')[0].appendChild(script);
   }
 
+  function draggThis(eve){
+    //to convert into a bookmarklet you must replace &apos; for something like ` or ´ AND " for &quot;
+    var selectorString = $('#selectorInput').val();
+    if(!selectorString)return;
+    $(selectorString).draggable();
+  }
+
   function initMyBookmarklet() {
     (window.myBookmarklet = function() {
-      //inside here starts my actual code
-      $('<div id=dndrQueryForm style="width:420px;padding:5px 10px;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;background:#f0f0f0;position:fixed;top:0px;left:50%;border:1px solid #999;border-top:none;-webkit-box-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);-moz-box-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);z-index:990;"><label>selector: <strong>$(&apos;</strong><input type=text id=selectorInput><strong>&apos;).</strong></label> <button id=makeElementsDnDble>make Draggable!</button></div>').appendTo('body').on('click','#makeElementsDnDble',function(eve){
-        var selectorString = $('#selectorInput').val();
-        if(!selectorString)return;
-        $(selectorString).draggable();
-      });
+      $('<div id=dndrQueryForm style="font-family:sans-serif;width:420px;padding:5px 10px;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;background:#f0f0f0;position:fixed;top:0px;left:50%;border:1px solid #999;border-top:none;-webkit-box-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);-moz-box-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);z-index:990;"><label>selector: <strong>$(&apos;</strong><input type=text id=selectorInput><strong>&apos;).</strong></label> <button id=makeElementsDnDble>make Draggable!</button></div>').appendTo('body').on('click','#makeElementsDnDble',draggThis);
+      $('#dndrQueryForm').draggable({ axis: 'x', addClasses: false });
+      $('#selectorInput').keyup(function(eve){
+        if(eve.which != 13)return;
+        draggThis(eve);
+      }).focus();
     })();
   }
 
